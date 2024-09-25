@@ -1,3 +1,3 @@
 # Biology Coding Club Meetings
 
-Ideas and test repository for those involved in the Biology Coding Club.
+We'll work week by week. See the `weeks` directory. The weeks should correspond to the weeks of the trimester we're in.
