@@ -5,4 +5,8 @@ mp <- read.csv(
   na.strings = c("-", "-"),
 )
 
-# Concentrations of small microplastics varied, notably higher in surface seawater.
+head(mp)
+
+# Concentrations of small microplastics varied, 
+# notably higher in surface seawater.
+

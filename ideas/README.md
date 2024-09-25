@@ -42,3 +42,6 @@ Some unedited ideas written down:
   - code editors
 
 - R markdown?
+
+And maybe some fun, and perhaps more advanced, biology related topics:
+- web scrape some fun biological data that nobody has looked at yet
