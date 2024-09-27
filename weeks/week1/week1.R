@@ -1,4 +1,4 @@
-# week 1:
+# Week 1: working script
 # building a simple script to do some probability calculations
 
 # Write a function to simulate rolling two six-sided dice 
@@ -53,6 +53,7 @@ counts
 # do it manually, and naively
 counts[counts == 5]
 
+# a manual implementation of the frequency table
 for (i in 2:12) {
   print(paste(i, "occurs", sum(counts == i), "times"))
 }
@@ -66,8 +67,6 @@ barplot(frequncy_table,
         ylab = "Frequency"
       )
 # HELP: do this in ggplot2
-
-
 
 # And shuffling and drawing from 52 cards:
 
@@ -89,3 +88,33 @@ shuffled_indices_of_the_deck <- sample(x = 1:52, size = 52)
 # shuffle the deck
 shuffled_deck <- cards[shuffled_indices_of_the_deck, ]
 rownames(shuffled_deck) <- NULL
+# and this is the first card
+shuffled_deck[1, ]
+
+# okay that's fine, but we want to draw more than one card
+# for each card, we must shuffle the deck again and again
+draw_n_cards <- function(n_shuffles = 10000) {
+  
+  suits <- c("hearts", "diamonds", "clubs", "spades")
+  values <- c(2:10, "J", "Q", "K", "A")
+  cards <- expand.grid(suit = suits, value = values, stringsAsFactors = FALSE)
+  
+  d <- data.frame(suit = character(n_shuffles), value = character(n_shuffles))
+  for (i in 1:n_shuffles) {
+    shuffled_indices_of_the_deck <- sample(x = 1:52, size = 52)
+    shuffled_deck <- cards[shuffled_indices_of_the_deck, ]
+    # fill row, but keep character type
+    d[i, ] <- shuffled_deck[1, ]
+  }
+  d
+}
+
+out <- draw_n_cards(10000)
+table(out)
+
+# plot the frequency of the cards
+barplot(table(out), 
+        main = "Frequency of cards drawn", 
+        xlab = "Card", 
+        ylab = "Frequency"
+)
