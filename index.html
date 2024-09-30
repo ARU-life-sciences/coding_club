@@ -11,19 +11,61 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title>Coding Club</title>
-
-
   <style>
     html {
       background-color: #cbeef9;
       font-family: "Raleway";
     }
   </style>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Menu bar styles */
+    .menu-bar {
+      display: flex;
+      background-color: #333;
+      justify-content: flex-start;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      left:0;
+      z-index: 1000;
+    }
+
+    body {
+      margin-top: 65px;
+      /* To avoid content overlap with the fixed menu */
+    }
+
+    .menu-item {
+      padding: 8px 20px;
+    }
+
+    .menu-item a {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .menu-item a:hover {
+      background-color: #111;
+    }
+  </style>
 </head>
 
-
-
 <body>
+
+  <div class="menu-bar">
+    <div class="menu-item"><a href="index.html">Home</a></div>
+    <div class="menu-item"><a href="about.html">About</a></div>
+    <div class="menu-item"><a href="https://github.com/yourrepo">Git</a></div>
+    <div class="menu-item"><a href="faq.html">FAQ</a></div>
+  </div>
+
+
+
   <h1>Welcome</h1>
   <p>Hello everyone this is the newly created Website for the Coding Club, enjoy.
   </p>
