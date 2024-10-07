@@ -75,6 +75,7 @@
 
 
 <script type="module">
+  // https://observablehq.com/@jarrettmeyer/bouncing-ball
   import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
   const bound = (value, min, max) => {
@@ -89,7 +90,7 @@
     }
     return value;
   }
-
+ 
   const maxVelocity = 60
 
   const velocityDivisor = 50
@@ -139,7 +140,7 @@
     .attr("d", "M10,0 L10,10 L0,5 Z")
     .attr("fill", ballColor);
 
-  
+
 
   let surface = svg.append("rect")
     .classed("surface", true)
@@ -175,10 +176,10 @@
       .attr("cy", move("y", height));
   }, drawInterval);
 
-  let startDragPos = {x: 0, y: 0};
+  let startDragPos = { x: 0, y: 0 };
   let drag = d3.drag()
     .on("start", () => {
-      diff = {x: 0, y: 0}
+      diff = { x: 0, y: 0 }
       startDragPos = {
         x: bound(d3.event.x, margin + radius, width - margin - radius),
         y: bound(d3.event.y, margin + radius, height - margin - radius)
@@ -215,7 +216,7 @@
       ball.attr("cx", bound(d3.event.x, margin + radius, width - margin - radius))
         .attr("cy", bound(d3.event.y, margin + radius, height - margin - radius));
       line.attr("stroke-width", 0);
-      startDragPos = {x: 0, y: 0};
+      startDragPos = { x: 0, y: 0 };
     });
 
   surface.call(drag);
