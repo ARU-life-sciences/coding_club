@@ -30,7 +30,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      left:0;
+      left: 0;
       z-index: 1000;
     }
 
@@ -64,7 +64,7 @@
     <div class="menu-item"><a href="faq.html">FAQ</a></div>
     <!-- code that faq pulls to bottom of the site-->
   </div>
-
+  <div class="Ball"> </div>
 
 
   <h1>Welcome</h1>
@@ -72,5 +72,153 @@
   </p>
 
 </body>
+
+
+<script type="module">
+  import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+  let angle = randBetween(0, Math.PI)
+  let diff = {
+    x: Math.cos(angle),
+    y: Math.sin(angle)
+  };
+  let velocity = 1;
+  const svg = d3.select(DOM.svg(width, height));
+
+  const defs = svg.append("defs");
+  const arrow = DOM.uid("arrow");
+
+  defs.append("marker")
+    .attr("id", arrow.id)
+    .attr("markerWidth", 10)
+    .attr("markerHeight", 10)
+    .attr("refX", 10)
+    .attr("refY", 5)
+    .attr("orient", "auto")
+    .append("path")
+    .attr("d", "M10,0 L10,10 L0,5 Z")
+    .attr("fill", ballColor);
+
+  svg.append("rect")
+    .attr("fill", "black")
+    .attr("width", width)
+    .attr("height", height);
+
+  let surface = svg.append("rect")
+    .classed("surface", true)
+    .attr("fill", "lightgray")
+    .attr("x", margin)
+    .attr("y", margin)
+    .attr("width", width - 2 * margin)
+    .attr("height", height - 2 * margin);
+
+  const ball = svg.append("circle")
+    .attr("fill", ballColor)
+    .attr("cx", width / 2)
+    .attr("cy", height / 2)
+    .attr("r", radius);
+
+  const line = svg.append("line")
+    .attr("stroke", ballColor)
+    .attr("stroke-width", 0)
+    .attr("marker-start", arrow);
+
+  function move(xy, max) {
+    return function () {
+      let current = +d3.select(this).attr(`c${xy}`);
+      let next = current + velocity * diff[xy];
+      if (next < margin + radius || next > max - margin - radius) {
+        diff[xy] *= -1;
+      }
+      return next;
+    };
+  }
+
+  let interval = setInterval(() => {
+    return ball.attr("cx", move("x", width))
+      .attr("cy", move("y", height));
+  }, drawInterval);
+
+  let startDragPos = { x: 0, y: 0 };
+  let drag = d3.drag()
+    .on("start", () => {
+      diff = { x: 0, y: 0 }
+      startDragPos = {
+        x: bound(d3.event.x, margin + radius, width - margin - radius),
+        y: bound(d3.event.y, margin + radius, height - margin - radius)
+      };
+      ball.attr("cx", startDragPos.x)
+        .attr("cy", startDragPos.y);
+      line.attr("stroke-width", 2)
+        .attr("x1", startDragPos.x)
+        .attr("y1", startDragPos.y)
+        .attr("x2", startDragPos.x)
+        .attr("y2", startDragPos.y);
+    })
+    .on("drag", () => {
+      let pos = {
+        x: bound(d3.event.x, margin + radius, width - margin - radius),
+        y: bound(d3.event.y, margin + radius, height - margin - radius)
+      };
+      ball.attr("cx", pos.x)
+        .attr("cy", pos.y);
+      line.attr("x2", pos.x)
+        .attr("y2", pos.y);
+    })
+    .on("end", () => {
+      let delta = {
+        x: d3.event.x - startDragPos.x,
+        y: d3.event.y - startDragPos.y
+      };
+      let angle = Math.atan2(delta.y, delta.x) + Math.PI;
+      diff = {
+        x: Math.cos(angle),
+        y: Math.sin(angle)
+      };
+      velocity = bound(Math.sqrt(Math.pow(delta.x, 2) + Math.pow(delta.y, 2)) / velocityDivisor, minVelocity, maxVelocity);
+      ball.attr("cx", bound(d3.event.x, margin + radius, width - margin - radius))
+        .attr("cy", bound(d3.event.y, margin + radius, height - margin - radius));
+      line.attr("stroke-width", 0);
+      startDragPos = { x: 0, y: 0 };
+    });
+
+  surface.call(drag);
+
+ const randBetween = (min, max) => {
+  const range = max - min;
+  return min + range * Math.random();
+}
+
+const bound = (value, min, max) => {
+  if (isNaN(value)) {
+    return 0;
+  }
+  if (value < min) {
+    return min;
+  }
+  if (value > max) {
+    return max;
+  }
+  return value;
+}
+
+const maxVelocity = 60
+ 
+const velocityDivisor = 50
+ 
+const margin = 10;
+ 
+const radius = 20
+ 
+const drawInterval = 1
+ 
+const ballColor = "steelblue"
+ 
+const height = 600
+ 
+
+
+
+</script>
 
 </html>
