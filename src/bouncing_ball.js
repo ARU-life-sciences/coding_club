@@ -21,8 +21,8 @@ const margin = 10;
 const radius = 20;
 const drawInterval = 1;
 const ballColor = "steelblue";
-const height = 1000;
-const width = 1500;
+const height = 600;
+const width = window.screen.width;
 
 const randBetween = (min, max) => {
     const range = max - min;
