@@ -48,7 +48,6 @@ abline(h = mean(d), col = "red", lty = 2)
 
 # show lines from each of our points to the mean
 for (i in 1:length(d)) {
-  print(paste(c(i, i), c(d[i], mean(d))))
   lines(c(i, i), c(d[i], mean(d)), col = "blue")
 }
 
@@ -75,4 +74,4 @@ degrees_of_freedom <- length(d) - 1
 mean_squared_residuals <- sum_of_squares / degrees_of_freedom
 ```
 
-Now we will compute the variance by hand.
+Now we will compute the variance by hand, using the code above!
