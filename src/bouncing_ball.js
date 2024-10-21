@@ -20,7 +20,7 @@ const velocityDivisor = 50;
 const margin = 10;
 const radius = 20;
 const drawInterval = 1;
-const ballColor = "steelblue";
+const ballColor = "#2A2A72";
 const height = 600;
 const width = window.screen.width;
 
@@ -36,7 +36,7 @@ let diff = {
     y: Math.sin(angle)
 };
 
-let velocity = 30;
+let velocity = 20;
 
 const svg = d3.select('#Ball').append('svg')
     .attr('width', width)
