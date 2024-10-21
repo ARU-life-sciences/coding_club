@@ -30,7 +30,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      left:0;
+      left: 0;
       z-index: 1000;
     }
 
@@ -52,6 +52,47 @@
     .menu-item a:hover {
       background-color: #111;
     }
+
+    .answer {
+      display: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* Style for questions */
+    .question {
+      cursor: pointer;
+      color: #1d5490;
+      font-weight: bold;
+    }
+
+    .question:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 20;
+      text-align: center;
+      margin-top: 55px;
+      /* Center the text */
+    }
+
+    li {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 20px;
+      font-size: 16pt;
+      /* Makes sure list items are centered horizontally */
+    }
+
+    .question,
+    .answer {
+      text-align: center;
+    }
+    h1{
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -68,11 +109,27 @@
 
 
   <h1>Frequently asked Questions</h1>
- <ul>
-  <li>
-    Why is there a ball?
-  </li>
- </ul>
+  <ul>
+    <li>
+      <div class="question">Why is there a ball?</div>
+      <div class="answer">The ball is used for balance and coordination in some activities.</div>
+    </li>
+    <li>
+      <div class="question">What is the purpose of this FAQ?</div>
+      <div class="answer">This FAQ is here to answer your common questions about the website.</div>
+    </li>
+  </ul>
+
+  <script>
+    // JavaScript to toggle the display of answers
+    document.querySelectorAll('.question').forEach(item => {
+      item.addEventListener('click', () => {
+        const answer = item.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+
 
 </body>
 
