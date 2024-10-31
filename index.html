@@ -7,19 +7,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./src/style.css">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title>Coding Club</title>
 
-   
+
 
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-<script type="module" src="/coding_club/src/bouncing_ball.js"></script>
+
+  <script type="module" src="/coding_club/src/bouncing_ball.js"></script>
 
 </head>
 
@@ -35,12 +35,24 @@
 
 
   <h1>Welcome</h1>
-  <p class="smallheading">Hello everyone this is the newly created Website for the Coding Club, enjoy.
-  </p>
-  <p>The blue bouncing ball that you can see, is for your enjoyment.  It has been scripted with Javascript, with help from <a href="https://observablehq.com/@jarrettmeyer/bouncing-ball">Observable.</a> Please use with care.</p>
-
+  <div class="fading">
+    <p class="smallheading">Hello everyone this is the newly created Website for the Coding Club, enjoy.
+    </p>
+    <p>The blue bouncing ball that you can see, is for your enjoyment. It has been scripted with Javascript, with help
+      from <a href="https://observablehq.com/@jarrettmeyer/bouncing-ball">Observable.</a> Please use with care.</p>
+  </div>
   <div id="Ball"></div>
 </body>
 
+<script>
+  document.querySelectorAll("p").forEach(paragraph => {
+
+    const letters = paragraph.textContent.split("");
+
+    paragraph.innerHTML = letters.map(letter => {return letter === " " ? " " : `<span>${letter}</span>`;}).join("");
+
+  });
+
+</script>
 
 </html>

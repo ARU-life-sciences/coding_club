@@ -1,29 +1,32 @@
 html {
-    background-color: #cbeef9;
+    background-color: #ffffff;
     font-family: "Raleway";
 }
 
 p {
-    font-size: 20px;
+    font-size: 30px;
     margin-left: 7%;
     margin-right: 22%;
     line-height: 30px;
     margin-block: 10px;
-    font-weight: 300;
+    font-weight: 400;
 }
+
 .smallheading {
-    font-weight:600;
+    font-weight: 600;
 }
+
 /* Menu bar styles */
 .menu-bar {
     display: flex;
-    background-color: #333;
+    background-color: #ffffff;
     justify-content: flex-start;
     position: fixed;
     top: 0;
     width: 100%;
     left: 0;
     z-index: 1000;
+    
 }
 
 body {
@@ -33,12 +36,14 @@ body {
 
 .menu-item {
     padding: 8px 20px;
+   
 }
 
 .menu-item a {
-    color: white;
+    color:midnightblue;
     text-decoration: none;
     text-align: center;
+    font-weight: 600;
 }
 
 .menu-item a:hover {
@@ -86,8 +91,26 @@ li {
 
 h1 {
     text-align: center;
-    color:midnightblue;
+    color: midnightblue;
     font-size: 45px;
     margin-bottom: 7%;
     margin-top: 8%;
+}
+
+.fading {
+    display: inline-block;
+}
+
+.fading span {
+    display: inline-block;
+    opacity: 1;
+    /* Start with faded letters */
+    transition: opacity 1.5s ease;
+    /* Smooth transition */
+}
+
+.fading span:hover {
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    /* Full opacity on hover */
 }
