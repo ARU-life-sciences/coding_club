@@ -1,10 +1,10 @@
 html {
     background-color: #cbeef9;
     font-family: "Raleway";
-  }
+}
 
-  /* Menu bar styles */
-  .menu-bar {
+/* Menu bar styles */
+.menu-bar {
     display: flex;
     background-color: #333;
     justify-content: flex-start;
@@ -13,23 +13,67 @@ html {
     width: 100%;
     left: 0;
     z-index: 1000;
-  }
+}
 
-  body {
+body {
     margin-top: 65px;
     /* To avoid content overlap with the fixed menu */
-  }
+}
 
-  .menu-item {
+.menu-item {
     padding: 8px 20px;
-  }
+}
 
-  .menu-item a {
+.menu-item a {
     color: white;
     text-decoration: none;
     text-align: center;
-  }
+}
 
-  .menu-item a:hover {
+.menu-item a:hover {
     background-color: #111;
-  }
+}
+
+
+.answer {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Style for questions */
+.question {
+    cursor: pointer;
+    color: #2A2A72;
+    font-weight: bold;
+}
+
+.question:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 20;
+    text-align: center;
+    margin-top: 55px;
+    /* Center the text */
+}
+
+li {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 16pt;
+    /* Makes sure list items are centered horizontally */
+}
+
+.question,
+.answer {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #587D71;
+}
