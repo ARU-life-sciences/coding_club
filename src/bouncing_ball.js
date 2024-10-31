@@ -56,7 +56,7 @@ defs.append("marker")
 
 let surface = svg.append("rect")
     .classed("surface", true)
-    .attr("fill", "#cbeef9")
+    .attr("fill", "#ffffff")
     .attr("x", margin)
     .attr("y", margin)
     .attr("width", width - 2 * margin)
