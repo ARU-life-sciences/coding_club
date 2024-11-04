@@ -3,7 +3,7 @@ html {
     font-family: "Raleway";
 }
 
-.Ball {
+#Ball {
     position: fixed;
     top: 0;
     left: 0;
