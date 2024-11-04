@@ -60,7 +60,10 @@ let surface = svg.append("rect")
     .attr("x", margin)
     .attr("y", margin)
     .attr("width", "100%")
-    .attr("height", "100%");
+    .attr("height", "100%")
+    .style("position", "absolute")  
+    .style("top", 0)
+    .style("left", 0);
 
 const ball = svg.append("circle")
     .attr("fill", ballColor)
