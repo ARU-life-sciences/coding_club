@@ -36,7 +36,7 @@ let diff = {
     y: Math.sin(angle)
 };
 
-let velocity = 20;
+let velocity = 2;
 
 const svg = d3.select('#Ball').append('svg')
     .attr('width', width)
