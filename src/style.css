@@ -115,7 +115,7 @@ h1 {
     display: inline-block;
     opacity: 1;
     /* Start with faded letters */
-    transition: opacity 1.5s ease;
+    transition: opacity 3.5s ease;
     /* Smooth transition */
 }
 

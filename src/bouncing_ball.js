@@ -15,13 +15,13 @@ const bound = (value, min, max) => {
 }
 
 const maxVelocity = 60;
-const minVelocity = 5;
+const minVelocity = 2;
 const velocityDivisor = 50;
 const margin = 10;
 const radius = 20;
 const drawInterval = 1;
 const ballColor = "#2A2A72";
-const height = window.screen.width;
+const height = window.screen.height;
 const width = window.screen.width;
 
 const randBetween = (min, max) => {
