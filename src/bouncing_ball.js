@@ -39,7 +39,7 @@ let diff = {
 let velocity = 20;
 
 const svg = d3.select('#Ball').append('svg')
-    .viewBox("0 0 100 100");
+    .attr("viewBox",[0, 0, 100, 100]);
 
 const defs = svg.append("defs");
 
