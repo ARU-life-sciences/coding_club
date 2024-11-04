@@ -39,7 +39,8 @@ let diff = {
 let velocity = 20;
 
 const svg = d3.select('#Ball').append('svg')
-    .attr("viewBox",[0, 0, 100, 100]);
+    .attr('width', width)
+    .attr('height', height);
 
 const defs = svg.append("defs");
 
@@ -58,8 +59,8 @@ let surface = svg.append("rect")
     .attr("fill", "#ffffff")
     .attr("x", margin)
     .attr("y", margin)
-    .attr("width", width - 2 * margin)
-    .attr("height", height - 2 * margin);
+    .attr("width", "100%")
+    .attr("height", "100%");
 
 const ball = svg.append("circle")
     .attr("fill", ballColor)
