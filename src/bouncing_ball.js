@@ -21,7 +21,7 @@ const margin = 10;
 const radius = 20;
 const drawInterval = 1;
 const ballColor = "#2A2A72";
-const height = window.screen.height;
+const height = window.screen.width;
 const width = window.screen.width;
 
 const randBetween = (min, max) => {
@@ -39,8 +39,7 @@ let diff = {
 let velocity = 20;
 
 const svg = d3.select('#Ball').append('svg')
-    .attr('width', width)
-    .attr('height', height);
+    .viewBox("0 0 100 100");
 
 const defs = svg.append("defs");
 
