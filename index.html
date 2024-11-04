@@ -20,6 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script type="module" src="/coding_club/src/bouncing_ball.js"></script>
+  <script src="/coding_club/src/fading_letters.js"></script>
 
 </head>
 
@@ -44,15 +45,6 @@
   <div id="Ball"></div>
 </body>
 
-<script>
-  document.querySelectorAll("p").forEach(paragraph => {
 
-    const letters = paragraph.textContent.split("");
-
-    paragraph.innerHTML = letters.map(letter => {return letter === " " ? " " : `<span>${letter}</span>`;}).join("");
-
-  });
-
-</script>
 
 </html>
